@@ -201,6 +201,6 @@ public class NotificationAttributes {
             writableMap.putMap("inboxStyle", inboxStyle);
         }
 
-        return (ReadableMap) writableMap;
+        return writableMap;
     }
 }

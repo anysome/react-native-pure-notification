@@ -192,7 +192,7 @@ public class Notification {
                     .setStyle(new android.support.v7.app.NotificationCompat.BigTextStyle()
                             .bigText(attributes.bigText));
         }
-        else if (attributes.bigStyleUrlImgage != null && attributes.bigStyleUrlImgage != "") {
+        else if (attributes.bigStyleUrlImgage != null && !attributes.bigStyleUrlImgage.equals("")) {
 
             Bitmap bigPicture = null;
 
@@ -428,8 +428,6 @@ public class Notification {
         Intent notificationIntent = new Intent(context, NotificationPublisher.class);
         notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, id);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, id, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        return pendingIntent;
+        return PendingIntent.getBroadcast(context, id, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 }

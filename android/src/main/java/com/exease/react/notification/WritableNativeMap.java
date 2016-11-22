@@ -33,7 +33,7 @@ public class WritableNativeMap extends HashMap implements WritableMap {
     @Override
     public int getInt(String name) {
         Number v = (Number) this.get(name);
-        return (int) v.intValue();
+        return v.intValue();
     }
 
     @Override
@@ -61,31 +61,37 @@ public class WritableNativeMap extends HashMap implements WritableMap {
     public void putNull(String key) {}
 
     @Override
+    @SuppressWarnings("unchecked")
     public void putBoolean(String key, boolean value) {
         this.put(key, value);
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void putDouble(String key, double value) {
         this.put(key, value);
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void putInt(String key, int value) {
         this.put(key, value);
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void putString(String key, String value) {
         this.put(key, value);
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void putArray(String key, WritableArray value) {
         this.put(key, value);
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void putMap(String key, WritableMap value) {
         this.put(key, value);
     }

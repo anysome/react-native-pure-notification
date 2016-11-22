@@ -68,7 +68,7 @@ public class RCTNotificationManager {
      */
     public ArrayList<Integer> getIDs() {
         Set<String> keys = sharedPreferences.getAll().keySet();
-        ArrayList<Integer> ids = new ArrayList<Integer>();
+        ArrayList<Integer> ids = new ArrayList<>();
 
         for (String key : keys) {
             try {

@@ -23,7 +23,6 @@ public class NotificationEventReceiver extends BroadcastReceiver {
     final static String ACTION = "action";
     final static String PAYLOAD = "payload";
 
-    @Override
     public void onReceive(Context context, Intent intent) {
         Bundle extras = intent.getExtras();
 
@@ -59,7 +58,7 @@ public class NotificationEventReceiver extends BroadcastReceiver {
     }
 
     private boolean applicationIsRunning(Context context) {
-        ActivityManager activityManager = (ActivityManager) context.getSystemService(context.ACTIVITY_SERVICE);
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT_WATCH) {
             List<RunningAppProcessInfo> processInfos = activityManager.getRunningAppProcesses();
