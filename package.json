@@ -1,15 +1,13 @@
 {
   "name": "react-native-pure-notification",
-  "version": "1.0.0",
+  "version": "0.2.1",
   "description": "Local notification for react-native android",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anysome/react-native-pure-notification.git"
   },
+  "nativePackage": true,
   "keywords": [
     "notification",
     "android",

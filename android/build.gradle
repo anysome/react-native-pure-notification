@@ -1,3 +1,22 @@
+import groovy.json.JsonSlurper
+
+def computeVersionName() {
+    // dynamically retrieve version from package.json
+    def slurper = new JsonSlurper()
+    def json = slurper.parse(file('../package.json'), "utf-8")
+    return json.version
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.2'
+    }
+}
+
 apply plugin: 'com.android.library'
 
 android {
@@ -8,17 +27,20 @@ android {
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName computeVersionName()
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+    lintOptions {
+        abortOnError false
     }
 }
 
+repositories {
+    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    mavenCentral()
+}
+
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.+'
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.google.code.gson:gson:+'
     compile 'com.facebook.react:react-native:+'
 }
